@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """modul"""
+from typing import Union, Tuple
 
-import typing
 
-
-def to_kv(k: str, v: typing.Union[int, float]) -> typing.Tuple[str, float]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """Converts a string and an int/float to a tuple"""
-    return [k, v ** 2]
+    return [k, float(v ** 2)]
