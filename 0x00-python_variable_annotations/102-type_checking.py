@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-
+"""modul"""
 
 from typing import Tuple, List
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """Returns a zoomed-in list"""
     zoomed_in: List[int] = [
         item for item in lst
         for i in range(factor)
