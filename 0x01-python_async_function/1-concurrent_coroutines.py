@@ -6,9 +6,7 @@ wait_random = __import__("0-basic_async_syntax").wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
-    """Wait for a given number of seconds"""
-    delayes = []
-    for i in range(n):
-        delayes.append(wait_random(max_delay))
-        i += 1
-    return await asyncio.gather(*delayes)
+    """returns the list of all the delays (float values)."""
+    tasks = [wait_random(max_delay) for _ in range(n)]
+    delays = await asyncio.gather(*tasks)
+    return delays
