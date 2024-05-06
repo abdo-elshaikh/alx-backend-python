@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """modul"""
-
-
 from asyncio import sleep
 import random
 
