@@ -59,15 +59,16 @@ class TestMemoize(unittest.TestCase):
         def a_property(self):
             return self.a_method()
 
-    @patch.object(TestClass, 'a_method', return_value=lambda: 42)
-    def test_memoize(self, mock_method):
-        '''test memoize'''
-        obj = self.TestClass()
-        result1 = obj.a_property()
-        result2 = obj.a_property()
-        mock_method.assert_called_once()
-        self.assertEqual(result1, 42)
-        self.assertEqual(result2, result2)
+    def test_memoize(self):
+        '''Test that memoize correctly caches the result of a method.'''
+        with patch.object(self.TestClass, 'a_method',
+                          return_value=lambda: 42) as mock_method:
+            obj = self.TestClass()
+            result1 = obj.a_property()
+            result2 = obj.a_property()
+            mock_method.assert_called_once()
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
 
 
 if __name__ == '__main__':
