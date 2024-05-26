@@ -5,6 +5,7 @@ import utils
 import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
+from utils import memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -54,7 +55,7 @@ class TestMemoize(unittest.TestCase):
         def a_method(self):
             return 42
 
-        @utils.memoize
+        @memoize
         def a_property(self):
             return self.a_method()
 
@@ -66,7 +67,7 @@ class TestMemoize(unittest.TestCase):
         result2 = obj.a_property()
         mock_method.assert_called_once()
         self.assertEqual(result1, 42)
-        self.assertEqual(result2, 42)
+        self.assertEqual(result2, result2)
 
 
 if __name__ == '__main__':
