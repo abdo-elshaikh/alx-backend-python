@@ -70,5 +70,6 @@ class TestMemoize(unittest.TestCase):
             self.assertEqual(test_class.a_property(), 42)
             memo_fxn.assert_called_once()
 
+
 if __name__ == '__main__':
     unittest.main()
