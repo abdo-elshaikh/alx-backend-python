@@ -29,7 +29,7 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError):
             utils.access_nested_map(params, expected)
 
-# python3 -c 'print(__import__("test_util").TestAccessNestedMap.TestGetJson.__doc__)'
+
 class TestGetJson(unittest.TestCase):
     '''test get json class'''
     @parameterized.expand([
