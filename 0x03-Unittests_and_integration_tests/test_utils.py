@@ -29,7 +29,7 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError):
             utils.access_nested_map(params, expected)
 
-
+# python3 -c 'print(__import__("test_util").TestAccessNestedMap.TestGetJson.__doc__)'
 class TestGetJson(unittest.TestCase):
     '''test get json class'''
     @parameterized.expand([
@@ -38,6 +38,7 @@ class TestGetJson(unittest.TestCase):
     ])
     @patch('utils.requests.get')
     def test_get_json(self, test_url, test_payload, mock_get):
+        '''test get json'''
         mock_response = Mock()
         mock_response.json.return_value = test_payload
         mock_get.return_value = mock_response
